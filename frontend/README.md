@@ -1,212 +1,172 @@
 # Task Manager App
 
-A simple full-stack Task Manager application built for the AWTOMATIG Full Stack Intern take-home assignment.
+A simple full-stack Task Manager application built for the **AWTOMATIG Full Stack Intern** take-home assignment.
 
-The application allows users to create, view, update, and delete tasks through a React frontend connected to a Node.js/Express backend with MongoDB.
+The application allows users to cleanly create, view, update, and delete tasks via a responsive React frontend powered by a Node.js/Express REST API and a MongoDB database.
 
 ---
 
 ## Features
 
-* Create a task with:
-
-  * Title
-  * Description
-  * Status
-* View all tasks
-* Update task status:
-
-  * To Do
-  * In Progress
-  * Done
-* Delete tasks
+* **Task Creation:** Add new items with a Title, Description, and designated Status.
+* **Live Dashboard:** Fetch and view all stored tasks dynamically from the database.
+* **Inline Status Updates:** Seamlessly move tasks between **To Do**, **In Progress**, and **Done** states.
+* **Task Deletion:** Permanently remove items with real-time UI synchronization.
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
 
 * React (Vite)
 * Tailwind CSS
-* JavaScript
+* JavaScript (ES6+)
 
 ### Backend
 
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
+* Node.js & Express.js
+* MongoDB & Mongoose ODM
 
 ---
 
-## Project Structure
+## 📦 Project Structure
 
 ```text
 task-manager/
 │
 ├── frontend/
-│   ├── src/
-│   ├── public/
-│   ├── .env
+│   ├── src/            # Components, styles, and core UI logic
+│   ├── public/         # Static assets
+│   ├── .env            # Frontend environment variables
 │   └── package.json
 │
 ├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── .env
-│   ├── server.js
+│   ├── controllers/    # Route handler logic
+│   ├── models/         # Mongoose schema definitions
+│   ├── routes/         # Express API endpoint definitions
+│   ├── .env            # Database and port configurations
+│   ├── server.js       # Application entry point
 │   └── package.json
 │
 └── README.md
+
 ```
 
 ---
 
-## Quick Start
+## ⚙️ Getting Started
 
 ### 1. Clone the Repository
 
 ```bash
 git clone <your-github-repository-url>
 cd task-manager
+
 ```
 
----
+### 2. Backend Setup
 
-## Backend Setup
-
-Navigate to the backend folder:
+Navigate to the backend directory:
 
 ```bash
 cd backend
+
 ```
 
-Install dependencies:
+Install the required dependencies:
 
 ```bash
 npm install
+
 ```
 
-Create a `.env` file inside the backend folder:
+Create a `.env` file in the root of the `backend/` directory:
 
 ```env
 PORT=5000
 MONGODB_URI=mongodb://127.0.0.1:27017/taskmanager
+
 ```
 
-Start the backend server:
+Launch the development server:
 
 ```bash
 npm run dev
+
 ```
 
-The backend will run on:
+> **Backend Service Local URL:** `http://localhost:5000`
 
-```text
-http://localhost:5000
-```
+### 3. Frontend Setup
 
----
-
-## Frontend Setup
-
-Open a new terminal and navigate to the frontend folder:
+Open a new terminal window and navigate to the frontend directory:
 
 ```bash
 cd frontend
+
 ```
 
-Install dependencies:
+Install the required dependencies:
 
 ```bash
 npm install
+
 ```
 
-Create a `.env` file inside the frontend folder:
+Create a `.env` file in the root of the `frontend/` directory:
 
 ```env
 VITE_API_URL=http://localhost:5000/api/tasks
+
 ```
 
-Start the frontend:
+Launch the Vite development server:
 
 ```bash
 npm run dev
+
 ```
 
-The frontend will run on:
-
-```text
-http://localhost:5173
-```
+> **Frontend Application Local URL:** `http://localhost:5173`
 
 ---
 
-## API Endpoints
+## 🔌 API Endpoints
 
-### Get All Tasks
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | `/api/tasks` | Retrieves all tasks from the database |
+| **POST** | `/api/tasks` | Creates a new task |
+| **PATCH** | `/api/tasks/:id` | Updates the status of an existing task |
+| **DELETE** | `/api/tasks/:id` | Deletes a task by its unique ID |
 
-```http
-GET /api/tasks
-```
+### Sample Request Payloads
 
-### Create Task
-
-```http
-POST /api/tasks
-```
-
-Request Body:
+* **POST** `/api/tasks`
 
 ```json
 {
   "title": "Complete Assignment",
-  "description": "Finish the task manager project",
+  "description": "Finish the task manager project for submission",
   "status": "To Do"
 }
+
 ```
 
-### Update Task Status
-
-```http
-PATCH /api/tasks/:id
-```
-
-Request Body:
+* **PATCH** `/api/tasks/:id`
 
 ```json
 {
   "status": "Done"
 }
-```
 
-### Delete Task
-
-```http
-DELETE /api/tasks/:id
 ```
 
 ---
 
-## Screenshots
-
-Add screenshots of the application here if desired.
-
-Example:
-
-```text
-screenshots/
-├── dashboard.png
-├── create-task.png
-└── update-status.png
-```
-
----
-
-## Author
+## 👥 Author
 
 **Shihab**
 
-Submitted for the AWTOMATIG Full Stack Intern Assignment.
+*Submitted as part of the technical screening process for the Full Stack Intern role at AWTOMATIG.*
